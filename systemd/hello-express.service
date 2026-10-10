@@ -1,0 +1,19 @@
+[Unit]
+Description=Hello World en Express (Laboratorio 03)
+Documentation=https://github.com/valeriehernandez-7/Debian-Systemd
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=velysian
+Group=velysian
+WorkingDirectory=/home/velysian/Documents/GitHub/Debian-Systemd/express
+ExecStart=/usr/bin/node app.js
+Environment=PORT=3000
+Environment=NODE_ENV=production
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
